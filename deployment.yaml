@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-js-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-js-app
+  template:
+    metadata:
+      labels:
+        app: node-js-app
+    spec:
+      containers:
+        - name: node-js-container
+          image: luxf23/node-js-sample
+          ports:
+            - containerPort: 5000
